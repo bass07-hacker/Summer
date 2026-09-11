@@ -1,0 +1,1159 @@
+# 🌍 Travel Group — Plateforme collaborative de voyages
+
+> **Organisez vos voyages en groupe. Décidez ensemble. Réservez facilement. Voyagez sereinement.**
+
+Travel Group est une application mobile collaborative destinée à simplifier l'organisation de voyages, d'excursions et de sorties en groupe.
+
+L'application permet à des utilisateurs de créer des groupes de voyage, d'inviter leurs amis, de proposer et voter pour des destinations, de discuter, de comparer les prix, de choisir des hôtels et des activités, puis de gérer les réservations avec les différents professionnels du secteur touristique.
+
+La plateforme met également en relation les voyageurs avec des **hôtels, organisateurs d'activités et guides touristiques**.
+
+---
+
+# 📌 Sommaire
+
+* [Présentation](#-présentation)
+* [Problématique](#-problématique)
+* [Solution](#-solution)
+* [Objectifs](#-objectifs)
+* [Types d'utilisateurs](#-types-dutilisateurs)
+* [Fonctionnalités](#-fonctionnalités)
+* [Fonctionnement d'un voyage](#-fonctionnement-dun-voyage)
+* [Rôles et permissions](#-rôles-et-permissions)
+* [Architecture fonctionnelle](#-architecture-fonctionnelle)
+* [Modules de l'application](#-modules-de-lapplication)
+* [Gestion des réservations](#-gestion-des-réservations)
+* [Gestion des destinations](#-gestion-des-destinations)
+* [Gestion des hôtels](#-gestion-des-hôtels)
+* [Gestion des activités](#-gestion-des-activités)
+* [Gestion des guides touristiques](#-gestion-des-guides-touristiques)
+* [Sécurité](#-sécurité)
+* [Technologies](#-technologies)
+* [Architecture technique](#-architecture-technique)
+* [Évolution future](#-évolution-future)
+* [Installation](#-installation)
+* [Contribution](#-contribution)
+
+---
+
+# 🧭 Présentation
+
+L'organisation d'un voyage entre amis peut rapidement devenir compliquée.
+
+Les membres d'un groupe doivent généralement utiliser plusieurs applications et plateformes :
+
+* WhatsApp pour discuter ;
+* Google Maps pour rechercher des endroits ;
+* des sites de réservation pour les hôtels ;
+* des réseaux sociaux pour rechercher des activités ;
+* des applications de paiement pour gérer les dépenses ;
+* des fichiers ou notes pour organiser le planning.
+
+Cette dispersion entraîne souvent :
+
+* des désaccords ;
+* des informations perdues ;
+* des difficultés à comparer les prix ;
+* des problèmes de coordination ;
+* une mauvaise gestion du budget ;
+* des oublis concernant les réservations.
+
+**Travel Group centralise toutes ces étapes dans une seule application.**
+
+---
+
+# ❗ Problématique
+
+> Comment permettre à un groupe d'amis de planifier et organiser entièrement un voyage depuis une seule application, tout en facilitant la communication, la prise de décision, la gestion des réservations et l'interaction avec les professionnels du tourisme ?
+
+---
+
+# 💡 Solution
+
+Travel Group propose un espace dédié à chaque voyage.
+
+Un utilisateur peut :
+
+1. Créer un groupe de voyage.
+2. Ajouter ses amis.
+3. Proposer différentes destinations.
+4. Organiser des sondages.
+5. Discuter avec les membres du groupe.
+6. Comparer les hôtels et leurs prix.
+7. Choisir un hébergement.
+8. Consulter les activités disponibles.
+9. Organiser le planning.
+10. Effectuer une réservation.
+11. Ajouter éventuellement un guide touristique.
+12. Suivre l'organisation du voyage jusqu'à l'arrivée à destination.
+
+---
+
+# 🎯 Objectifs
+
+## Objectif principal
+
+Simplifier l'organisation des voyages et excursions en groupe.
+
+## Objectifs secondaires
+
+* Centraliser les informations touristiques.
+* Faciliter les décisions collectives.
+* Faciliter la comparaison des prix.
+* Améliorer la communication entre les voyageurs.
+* Faciliter les réservations.
+* Donner de la visibilité aux professionnels du tourisme.
+* Faciliter la coordination entre voyageurs et prestataires.
+
+---
+
+# 👥 Types d'utilisateurs
+
+La plateforme comporte plusieurs catégories d'utilisateurs.
+
+## 👑 1. ADMIN
+
+L'administrateur est responsable de la gestion globale de la plateforme.
+
+### Fonctionnalités
+
+* Gestion des utilisateurs.
+* Gestion des destinations.
+* Gestion des hôtels.
+* Gestion des activités.
+* Gestion des guides touristiques.
+* Gestion des catégories.
+* Gestion des réservations.
+* Gestion des contenus.
+* Gestion des agents professionnels.
+* Activation/désactivation de comptes.
+* Modification des informations.
+* Suppression des données selon les permissions.
+* Consultation des statistiques.
+
+### Dashboard Admin
+
+Le tableau de bord permet notamment de consulter :
+
+* Nombre total d'utilisateurs.
+* Nombre de voyageurs.
+* Nombre d'agents hôtels.
+* Nombre d'agents activités.
+* Nombre de guides.
+* Nombre de groupes.
+* Nombre de destinations.
+* Nombre d'hôtels.
+* Nombre d'activités.
+* Nombre de réservations.
+
+---
+
+# 👤 2. USER / VOYAGEUR
+
+Le User est l'utilisateur classique de l'application.
+
+### Gestion du compte
+
+Il peut :
+
+* Créer un compte.
+* Se connecter.
+* Modifier son profil.
+* Modifier certaines informations personnelles.
+* Choisir un avatar parmi plusieurs avatars disponibles.
+* Modifier son mot de passe.
+* Consulter ses groupes.
+
+### Gestion des amis
+
+L'utilisateur peut :
+
+* Ajouter des amis.
+* Accepter/refuser des demandes.
+* Consulter ses amis.
+* Inviter ses amis dans un groupe.
+
+---
+
+# 👥 3. GROUPE DE VOYAGE
+
+Un utilisateur peut créer un groupe.
+
+Exemple :
+
+> 🌴 Vacances Saly 2027
+
+Le créateur devient automatiquement :
+
+**ADMINISTRATEUR DU GROUPE**
+
+Il peut :
+
+* Ajouter des membres.
+* Supprimer des membres.
+* Modifier les informations du groupe.
+* Créer des sondages.
+* Gérer les décisions.
+* Choisir l'hôtel.
+* Effectuer la réservation.
+* Ajouter éventuellement un guide touristique.
+
+---
+
+# 💬 4. DISCUSSION DU GROUPE
+
+Chaque groupe dispose d'un espace de discussion.
+
+Les membres peuvent :
+
+* Envoyer des messages.
+* Partager des informations.
+* Discuter des destinations.
+* Discuter des prix.
+* Discuter des hôtels.
+* Discuter des activités.
+* Partager des éléments liés au voyage.
+
+Les discussions sont privées aux membres du groupe.
+
+---
+
+# 🗳️ 5. SONDAGES
+
+Les membres peuvent proposer différentes options.
+
+Exemple :
+
+### Quelle destination choisissez-vous ?
+
+* 🏖️ Saly
+* 🌊 Somone
+* 🏝️ Casamance
+* 🏛️ Saint-Louis
+
+L'administrateur du groupe peut :
+
+* Créer un sondage.
+* Définir une date de fin.
+* Consulter les résultats.
+* Clôturer le sondage.
+
+Les membres peuvent voter selon les règles définies par le groupe.
+
+---
+
+# 🏨 6. AGENT HÔTEL
+
+L'Agent Hôtel représente un établissement hôtelier.
+
+Important :
+
+> Les agents hôtels ne créent pas eux-mêmes leur compte professionnel.
+
+L'administrateur de la plateforme crée ou valide leur compte.
+
+### L'Agent Hôtel peut :
+
+* Consulter son hôtel.
+* Modifier certaines informations autorisées.
+* Ajouter des chambres.
+* Définir les disponibilités.
+* Définir les tarifs.
+* Consulter les demandes de réservation.
+* Accepter une réservation.
+* Refuser une réservation.
+* Consulter les dates.
+* Consulter les informations du groupe.
+
+### Informations d'un hôtel
+
+* Nom.
+* Description.
+* Adresse.
+* Localisation GPS.
+* Photos.
+* Téléphone.
+* Email.
+* Nombre de chambres.
+* Types de chambres.
+* Prix.
+* Services.
+* Disponibilités.
+* Règles de réservation.
+
+---
+
+# 🎯 7. AGENT ACTIVITÉ
+
+L'Agent Activité représente un organisateur d'activité touristique.
+
+Il peut proposer différentes activités.
+
+### Exemple
+
+> 🏄 Jet Ski à Saly
+
+Informations :
+
+* Nom.
+* Description.
+* Photos.
+* Localisation.
+* Prix.
+* Nombre minimum de participants.
+* Nombre maximum de participants.
+* Durée.
+* Horaires.
+* Jours disponibles.
+* Contact.
+* Conditions.
+* Disponibilité.
+
+### Fonctionnalités
+
+L'agent peut :
+
+* Ajouter une activité.
+* Modifier une activité.
+* Activer/désactiver une activité.
+* Gérer les horaires.
+* Gérer les disponibilités.
+* Consulter les demandes.
+* Confirmer une réservation.
+
+---
+
+# 🧭 8. GUIDE TOURISTIQUE
+
+Le guide touristique est un acteur optionnel du voyage.
+
+Un groupe peut décider d'ajouter un guide à son excursion.
+
+Le guide peut :
+
+* Rejoindre un groupe.
+* Consulter les informations du voyage.
+* Communiquer avec les membres.
+* Consulter le planning.
+* Consulter le lieu d'arrivée.
+* Coordonner l'arrivée des voyageurs.
+* Donner des informations touristiques.
+* Aider à l'organisation des activités.
+
+Le guide n'est donc pas obligatoire.
+
+---
+
+# 🚗 9. AGENT TRANSPORT — ÉVOLUTION FUTURE
+
+Un futur rôle pourra être ajouté :
+
+**AGENT_TRANSPORT**
+
+Il pourra représenter :
+
+* Location de voitures.
+* Chauffeurs privés.
+* Bus.
+* Minibus.
+* Transport touristique.
+
+Il pourra gérer :
+
+* Véhicules.
+* Prix.
+* Disponibilités.
+* Réservations.
+* Chauffeurs.
+
+---
+
+# 🔄 Fonctionnement d'un voyage
+
+Le fonctionnement principal de l'application suit le processus suivant :
+
+```text
+Création du compte
+       ↓
+Création du groupe
+       ↓
+Invitation des amis
+       ↓
+Proposition de destinations
+       ↓
+Sondage
+       ↓
+Destination choisie
+       ↓
+Recherche d'hôtels
+       ↓
+Comparaison des prix
+       ↓
+Choix de l'hôtel
+       ↓
+Réservation
+       ↓
+Recherche d'activités
+       ↓
+Choix des activités
+       ↓
+Organisation du planning
+       ↓
+Ajout éventuel d'un guide
+       ↓
+Coordination de l'arrivée
+       ↓
+VOYAGE
+```
+
+---
+
+# 💰 Gestion du budget
+
+Le groupe doit pouvoir avoir une vision globale des dépenses.
+
+Exemple :
+
+```text
+Voyage : Saly
+
+Hôtel              250 000 FCFA
+Transport           80 000 FCFA
+Activités            60 000 FCFA
+Autres dépenses      30 000 FCFA
+--------------------------------
+TOTAL               420 000 FCFA
+```
+
+L'application peut ensuite calculer :
+
+```text
+420 000 / 6 personnes
+
+= 70 000 FCFA / personne
+```
+
+Le groupe pourra ainsi prendre ses décisions en fonction de son budget.
+
+---
+
+# 🏨 Gestion des réservations
+
+La réservation d'un hôtel suit le processus :
+
+```text
+Groupe
+  ↓
+Choix de l'hôtel
+  ↓
+Demande de réservation
+  ↓
+Agent Hôtel
+  ↓
+Vérification disponibilité
+  ↓
+Acceptation / Refus
+  ↓
+Confirmation
+  ↓
+Réservation enregistrée
+```
+
+L'Agent Hôtel voit notamment :
+
+* Groupe demandeur.
+* Nombre de personnes.
+* Date d'arrivée.
+* Date de départ.
+* Type de chambre.
+* Nombre de chambres.
+* Informations nécessaires à la réservation.
+
+---
+
+# 🗺️ Destinations
+
+Chaque destination possède une fiche détaillée.
+
+### Informations
+
+* Nom.
+* Description.
+* Région/pays.
+* Photos.
+* Coordonnées GPS.
+* Hôtels disponibles.
+* Activités disponibles.
+* Guides disponibles.
+* Informations touristiques.
+
+---
+
+# 📍 Carte interactive
+
+La plateforme pourra intégrer une carte permettant d'afficher :
+
+```text
+📍 Destination
+
+🏨 Hôtel
+🏨 Hôtel
+🏨 Hôtel
+
+🎯 Activité
+🎯 Activité
+
+🧭 Guide
+
+🚗 Transport
+```
+
+L'utilisateur pourra sélectionner un élément pour consulter ses informations.
+
+---
+
+# 🏨 Hôtels
+
+Chaque hôtel possède une fiche publique.
+
+### Informations
+
+```text
+Nom
+Photos
+Description
+Adresse
+Localisation
+Prix
+Services
+Chambres
+Disponibilités
+Contact
+Avis
+```
+
+L'administrateur contrôle la présence des hôtels sur la plateforme.
+
+---
+
+# 🎯 Activités
+
+Les activités sont associées aux destinations.
+
+Exemple :
+
+```text
+Destination : Saly
+
+Activités :
+
+🏄 Jet Ski
+🐎 Balade à cheval
+🚤 Excursion en bateau
+🏖️ Sortie plage
+🤿 Plongée
+```
+
+Chaque activité possède :
+
+* Prix.
+* Horaires.
+* Durée.
+* Nombre de participants.
+* Localisation.
+* Responsable.
+* Disponibilité.
+
+---
+
+# 🧭 Guides touristiques
+
+Les guides peuvent être associés aux destinations.
+
+Un groupe peut consulter les guides disponibles et éventuellement envoyer une demande.
+
+### Profil guide
+
+* Nom.
+* Avatar/photo.
+* Description.
+* Langues parlées.
+* Zones couvertes.
+* Expérience.
+* Disponibilités.
+* Tarif.
+* Contact.
+* Avis.
+
+---
+
+# 🔐 Sécurité et gestion des rôles
+
+Chaque utilisateur possède un rôle.
+
+```text
+ADMIN
+USER
+AGENT_HOTEL
+AGENT_ACTIVITE
+GUIDE_TOURISTIQUE
+AGENT_TRANSPORT
+```
+
+Les permissions sont différentes selon le rôle.
+
+Exemple :
+
+```text
+ADMIN
+ ├── CRUD Users
+ ├── CRUD Destinations
+ ├── CRUD Hotels
+ ├── CRUD Activités
+ ├── Gestion Agents
+ └── Gestion globale
+
+USER
+ ├── Profil
+ ├── Amis
+ ├── Groupes
+ ├── Discussions
+ ├── Sondages
+ ├── Budget
+ └── Réservations
+
+AGENT_HOTEL
+ ├── Hôtel
+ ├── Chambres
+ ├── Disponibilités
+ └── Réservations
+
+AGENT_ACTIVITE
+ ├── Activités
+ ├── Horaires
+ ├── Disponibilités
+ └── Réservations
+
+GUIDE_TOURISTIQUE
+ ├── Profil
+ ├── Groupes
+ ├── Planning
+ └── Communication
+```
+
+---
+
+# 📱 Modules de l'application mobile
+
+## Module Authentification
+
+* Inscription.
+* Connexion.
+* Déconnexion.
+* Mot de passe oublié.
+* Gestion du profil.
+
+## Module Profil
+
+* Avatar.
+* Informations personnelles.
+* Préférences.
+* Paramètres.
+
+## Module Amis
+
+* Liste d'amis.
+* Demandes.
+* Invitations.
+
+## Module Groupes
+
+* Création.
+* Invitations.
+* Membres.
+* Discussions.
+* Sondages.
+* Budget.
+* Planning.
+
+## Module Destinations
+
+* Recherche.
+* Filtrage.
+* Détails.
+* Carte.
+
+## Module Hôtels
+
+* Recherche.
+* Filtrage.
+* Comparaison.
+* Détails.
+* Réservation.
+
+## Module Activités
+
+* Recherche.
+* Filtrage.
+* Prix.
+* Horaires.
+* Disponibilité.
+* Réservation.
+
+## Module Guides
+
+* Recherche.
+* Profils.
+* Disponibilités.
+* Demande de participation.
+
+## Module Notifications
+
+* Nouvelle invitation.
+* Nouveau message.
+* Nouveau sondage.
+* Résultat du sondage.
+* Réservation acceptée.
+* Réservation refusée.
+* Modification d'une réservation.
+
+---
+
+# 🖥️ Dashboard Administrateur
+
+L'administrateur dispose d'une interface permettant de gérer toute la plateforme.
+
+### Utilisateurs
+
+```text
+Tous
+Users
+Agents Hôtel
+Agents Activité
+Guides
+Agents Transport
+```
+
+### Destinations
+
+```text
+Liste
+Ajouter
+Modifier
+Supprimer
+Activer / Désactiver
+```
+
+### Hôtels
+
+```text
+Liste
+Ajouter
+Modifier
+Supprimer
+Agents associés
+Réservations
+```
+
+### Activités
+
+```text
+Liste
+Ajouter
+Modifier
+Supprimer
+Responsables
+Réservations
+```
+
+### Réservations
+
+```text
+Toutes
+En attente
+Confirmées
+Refusées
+Annulées
+```
+
+---
+
+# 🧩 Architecture fonctionnelle
+
+```text
+                    ┌────────────────────┐
+                    │       ADMIN        │
+                    └─────────┬──────────┘
+                              │
+             ┌────────────────┼────────────────┐
+             ↓                ↓                ↓
+        Utilisateurs     Destinations      Prestataires
+                                              │
+                              ┌───────────────┼──────────────┐
+                              ↓               ↓              ↓
+                           Hôtels         Activités       Guides
+
+
+                    ┌────────────────────┐
+                    │        USER        │
+                    └─────────┬──────────┘
+                              │
+                        Groupe Voyage
+                              │
+             ┌────────────────┼─────────────────┐
+             ↓                ↓                 ↓
+        Discussions       Sondages           Budget
+             │                │                 │
+             └────────────────┼─────────────────┘
+                              ↓
+                       Destination
+                              │
+                    ┌─────────┼─────────┐
+                    ↓         ↓         ↓
+                  Hôtel    Activités   Guide
+                    │         │         │
+                    └─────────┼─────────┘
+                              ↓
+                         RÉSERVATION
+```
+
+---
+
+# 🏗️ Architecture technique recommandée
+
+L'application peut être construite avec une architecture moderne :
+
+```text
+                 MOBILE APPLICATION
+                        │
+                        │ REST API / HTTPS
+                        ↓
+                ┌─────────────────┐
+                │   BACKEND API   │
+                │                 │
+                │ Spring Boot     │
+                └────────┬────────┘
+                         │
+          ┌──────────────┼───────────────┐
+          ↓              ↓               ↓
+       MySQL          Storage        Notifications
+          │
+          ↓
+     Database
+```
+
+---
+
+# 🛠️ Stack technique recommandée
+
+## Mobile
+
+### Option recommandée
+
+**React Native + Expo**
+
+ou
+
+**Flutter**
+
+Pour une équipe ayant déjà des connaissances React/JavaScript, React Native peut être particulièrement intéressant.
+
+---
+
+## Backend
+
+```text
+Java
+Spring Boot
+Spring Security
+Spring Data JPA
+Hibernate
+REST API
+```
+
+---
+
+## Base de données
+
+```text
+MySQL
+```
+
+---
+
+## Authentification
+
+```text
+JWT
+Spring Security
+```
+
+Une évolution vers un système d'identité centralisé comme Keycloak peut également être envisagée.
+
+---
+
+## Cartographie
+
+Possibilité d'utiliser :
+
+* OpenStreetMap.
+* Mapbox.
+* Google Maps.
+
+---
+
+## Stockage des images
+
+Les images des :
+
+* hôtels ;
+* activités ;
+* destinations ;
+* avatars ;
+
+devront idéalement être stockées dans un service de stockage dédié plutôt que directement dans MySQL.
+
+---
+
+# 🗃️ Principales entités métier
+
+Une première modélisation peut contenir :
+
+```text
+User
+Role
+Friendship
+
+GroupeVoyage
+MembreGroupe
+Message
+Sondage
+Vote
+
+Destination
+
+Hotel
+AgentHotel
+Chambre
+DisponibiliteHotel
+
+Activite
+AgentActivite
+DisponibiliteActivite
+
+GuideTouristique
+
+ReservationHotel
+ReservationActivite
+ReservationGuide
+
+Budget
+Depense
+
+Planning
+Notification
+```
+
+Cette structure pourra évoluer pendant la conception UML et du modèle de données.
+
+---
+
+# 🔄 États d'une réservation
+
+Une réservation peut avoir plusieurs états :
+
+```text
+PENDING
+    ↓
+CONFIRMED
+    ↓
+COMPLETED
+```
+
+ou
+
+```text
+PENDING
+    ↓
+REJECTED
+```
+
+ou
+
+```text
+CONFIRMED
+    ↓
+CANCELLED
+```
+
+---
+
+# 🔔 Notifications
+
+L'application doit notifier les utilisateurs lors des événements importants.
+
+Exemples :
+
+> 🔔 Amadou vous a ajouté au groupe "Vacances Saly".
+
+> 🔔 Un nouveau sondage a été créé.
+
+> 🔔 Le sondage "Destination" se termine demain.
+
+> 🔔 Votre réservation d'hôtel a été confirmée.
+
+> 🔔 Le guide touristique a accepté votre demande.
+
+---
+
+# 📈 Évolutions futures
+
+Plusieurs fonctionnalités pourront être ajoutées progressivement.
+
+## 💳 Paiement
+
+Intégration de solutions de paiement adaptées au marché.
+
+## 🚗 Transport
+
+Ajout des agents transporteurs.
+
+## 🤖 Intelligence artificielle
+
+L'application pourrait proposer automatiquement :
+
+* des destinations ;
+* des activités ;
+* un budget estimatif ;
+* un planning ;
+* des hôtels selon le budget du groupe.
+
+Exemple :
+
+> "Nous sommes 6 personnes avec un budget de 600 000 FCFA pour 3 jours."
+
+L'application pourrait proposer plusieurs scénarios de voyage.
+
+---
+
+## 🌐 Extension internationale
+
+Après validation du marché local :
+
+```text
+Sénégal
+   ↓
+Afrique de l'Ouest
+   ↓
+Afrique
+   ↓
+International
+```
+
+---
+
+# 🚀 Roadmap
+
+## Phase 1 — MVP
+
+* Authentification.
+* Profils.
+* Avatars.
+* Création de groupes.
+* Invitations.
+* Discussions.
+* Sondages.
+* Destinations.
+* Budget.
+* Planning.
+
+## Phase 2 — Prestataires
+
+* Hôtels.
+* Agents hôtels.
+* Activités.
+* Agents activités.
+* Guides touristiques.
+
+## Phase 3 — Réservations
+
+* Réservation hôtel.
+* Réservation activités.
+* Demande de guide.
+* Notifications.
+* Gestion des disponibilités.
+
+## Phase 4 — Marketplace
+
+* Paiement.
+* Transport.
+* Packs touristiques.
+* Avis.
+* Notes.
+* Promotions.
+
+## Phase 5 — Intelligence
+
+* Recommandations personnalisées.
+* Génération automatique de planning.
+* Optimisation du budget.
+* Assistant voyage IA.
+
+---
+
+# 🎯 Vision
+
+Travel Group a pour ambition de devenir une plateforme permettant de gérer **l'intégralité du cycle d'un voyage en groupe**.
+
+De :
+
+> **"On part où ?"**
+
+à :
+
+> **"Bienvenue à destination !"**
+
+en passant par :
+
+```text
+Décision
+   ↓
+Organisation
+   ↓
+Budget
+   ↓
+Réservation
+   ↓
+Planning
+   ↓
+Coordination
+   ↓
+Voyage
+```
+
+---
+
+# 📜 Licence
+
+Projet en cours de développement.
+
+La licence sera définie ultérieurement.
+
+---
+
+# 👨‍💻 Statut du projet
+
+🚧 **En développement**
+
+Le projet est actuellement en phase de conception et de définition des fonctionnalités.
+
+---
+
+# ⭐ Conclusion
+
+Travel Group cherche à résoudre un problème simple mais fréquent :
+
+> **Organiser un voyage à plusieurs ne devrait pas nécessiter plusieurs applications, des centaines de messages et des dizaines de discussions.**
+
+L'objectif est de créer un espace unique où les voyageurs peuvent **décider ensemble, organiser ensemble et voyager ensemble.**
+
